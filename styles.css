@@ -73,13 +73,14 @@ body.home {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .header-actions {
   position: absolute;
   right: clamp(16px, 4vw, 28px);
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,6 +102,7 @@ body.home {
   background: linear-gradient(135deg, rgba(0, 145, 255, 0.85) 0%, rgba(72, 203, 255, 0.92) 100%);
   color: #ffffff;
   font-size: 0;
+  line-height: 0;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
