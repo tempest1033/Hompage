@@ -1,4 +1,11 @@
 ﻿(function () {
+  const path = window.location.pathname;
+  if (path.endsWith('/index.html')) {
+    const cleanPath = path.slice(0, -'index.html'.length);
+    const target = cleanPath === '' ? '/' : cleanPath;
+    window.history.replaceState(null, '', `${target}${window.location.search}${window.location.hash}`);
+  }
+
   const STORAGE_KEY = 'tribigames-language';
   const translations = {
     ko: {
