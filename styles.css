@@ -284,6 +284,16 @@ body {
   justify-content: space-between;
   gap: clamp(12px, 3vw, 28px);
 }
+
+/* 양쪽 링크 길이와 무관하게 중앙 정보가 고정되도록 균형 그리드 */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+.footer-brand { justify-self: start; }
+.footer-info { justify-self: center; }
+.footer-links { justify-self: end; }
 .footer-brand img {
   width: clamp(108px, 14vw, 150px);
   height: auto;
@@ -303,6 +313,7 @@ body {
 .footer-links {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 14px;
   white-space: nowrap;
   overflow: hidden;
@@ -408,8 +419,26 @@ a:focus-visible, button:focus-visible {
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
   .footer-label { flex-direction: column; align-items: center; text-align: center; padding-block: 18px; gap: 12px; }
-  .footer-inner, .footer-content { flex-direction: column; justify-content: center; align-items: center; gap: 12px; }
-  .footer-links { justify-content: center; }
+  .footer-inner, .footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-links {
+    width: 100%;
+    max-width: 320px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+  }
+  .footer-links a {
+    width: 100%;
+    text-align: center;
+  }
 }
 @media (max-width: 640px) {
   .header-label { height: auto; min-height: var(--header-h-sm); }
