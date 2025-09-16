@@ -36,32 +36,196 @@
   </header>
   <main class="site-main">
     <article class="legal-container">
-      <h1 data-i18n="privacy.title">개인정보처리방침</h1>
-      <p data-i18n="privacy.intro">회사는 회원의 개인정보를 중요하게 생각하며, 관련 법령과 지침을 준수하여 안전하게 관리합니다.</p>
+      <div data-lang-block="ko">
+        <h1>개인정보처리방침</h1>
 
-      <h2 data-i18n="privacy.section1.title">1. 수집하는 개인정보 항목 및 수집 방법</h2>
-      <ul>
-        <li data-i18n="privacy.section1.item1">가입 시: 이메일 주소, 닉네임, 비밀번호</li>
-        <li data-i18n="privacy.section1.item2">서비스 이용 과정에서 생성되는 게임 플레이 기록, 접속 로그, 결제 기록</li>
-      </ul>
+        <h2>1. 총칙</h2>
+        <p>회사는 「개인정보 보호법」 등 관계 법령을 준수하며, 본 방침은 회사가 제공하는 모바일 게임 및 관련 서비스에 적용됩니다.</p>
 
-      <h2 data-i18n="privacy.section2.title">2. 개인정보의 이용 목적</h2>
-      <ul>
-        <li data-i18n="privacy.section2.item1">서비스 제공 및 회원 관리</li>
-        <li data-i18n="privacy.section2.item2">고객 문의 대응 및 공지사항 전달</li>
-        <li data-i18n="privacy.section2.item3">서비스 품질 향상을 위한 통계 분석</li>
-      </ul>
+        <h2>2. 처리하는 개인정보 항목</h2>
+        <ul>
+          <li>(1) 필수(서비스 운영): 기기정보(모델/OS/언어/국가), 앱 버전, 광고식별자(ADID/IDFA), IP, 이용기록(세션/이벤트/성능), 오류·충돌 로그</li>
+          <li>(2) 결제 시 생성/수집: 구매 식별자, 거래 일시/금액/항목, 환불·민원 처리 이력(플랫폼 제공 범위)</li>
+          <li>(3) 선택(문의 시): 이메일 주소, 닉네임 등 이용자 제공 정보</li>
+        </ul>
+        <p>회사는 위치정보를 수집·이용하지 않습니다.</p>
 
-      <h2 data-i18n="privacy.section3.title">3. 개인정보의 보유 및 이용 기간</h2>
-      <p data-i18n="privacy.section3.body">회사는 이용 목적 달성 후 지체 없이 개인정보를 파기하며, 관련 법령에서 정한 기간 동안은 해당 법령을 따릅니다.</p>
+        <h2>3. 처리 목적</h2>
+        <p>서비스 제공·유지·개선, 오류 진단 및 부정 이용 방지, 광고 노출 및 성과 측정, 이용 통계 분석, 결제 처리·구매내역 확인·환불 및 민원 대응</p>
 
-      <h2 data-i18n="privacy.section4.title">4. 개인정보의 제3자 제공</h2>
-      <p data-i18n="privacy.section4.body">회사는 이용자의 동의가 있거나 법령에 의해 요구되는 경우를 제외하고 개인정보를 제3자에게 제공하지 않습니다.</p>
+        <h2>4. 보유 및 이용기간</h2>
+        <p>회사는 목적 달성 후 지체 없이 파기합니다.</p>
+        <p>다만 법령상 보존 의무가 있는 경우 아래 기간 동안 보관합니다:</p>
+        <ul>
+          <li>계약/청약철회 등 기록 5년</li>
+          <li>대금결제 및 재화 공급에 관한 기록 5년</li>
+          <li>소비자 불만 또는 분쟁처리에 관한 기록 3년</li>
+          <li>접속기록(로그기록/접속지 추적자료) 3개월</li>
+        </ul>
+        <p>제3자(SDK 제공자)는 각 사 정책을 따릅니다(예: 일부 Crash 데이터 ~90일 보관).</p>
 
-      <h2 data-i18n="privacy.section5.title">5. 이용자의 권리 및 행사 방법</h2>
-      <p data-i18n="privacy.section5.body">회원은 언제든지 자신의 개인정보를 열람, 정정, 삭제를 요청할 수 있으며, 회사는 지체 없이 조치합니다.</p>
+        <h2>5. 제3자 제공·처리위탁·국외이전</h2>
+        <p>회사는 다음 제3자 도구를 사용합니다(국외 서버에서 처리/보관 가능).</p>
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>제공자</th>
+              <th>이용 목적</th>
+              <th>이전 국가</th>
+              <th>보유/파기</th>
+              <th>정책 URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>광고</td>
+              <td>Google AdMob</td>
+              <td>광고 제공·성과 측정·부정 트래픽 방지</td>
+              <td>미국 등</td>
+              <td>제공자 정책 따름</td>
+              <td><a href="https://support.google.com/admob/answer/6128543">정책 1</a><br><a href="https://support.google.com/admob/answer/10022365">정책 2</a></td>
+            </tr>
+            <tr>
+              <td>분석/오류</td>
+              <td>Google Firebase (Analytics/Crashlytics)</td>
+              <td>이용 통계·성능 모니터링·오류 분석</td>
+              <td>미국 등</td>
+              <td>일부 대시보드 데이터 ~90일</td>
+              <td><a href="https://firebase.google.com/support/privacy">정책 1</a><br><a href="https://firebase.google.com/terms/data-processing-terms">정책 2</a></td>
+            </tr>
+            <tr>
+              <td>동의(해당 시)</td>
+              <td>Google UMP SDK</td>
+              <td>개인정보/광고 동의 수집·관리</td>
+              <td>미국 등</td>
+              <td>제공자 정책 따름</td>
+              <td><a href="https://www.google.com/about/company/user-consent-policy/">정책 1</a><br><a href="https://developers.google.com/admob/android/privacy">정책 2</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>※ 실제 사용하는 SDK가 달라지면 업체/목적/국가/보유/정책 URL을 즉시 업데이트합니다.</p>
 
-      <p class="legal-updated" data-i18n="privacy.effectiveDate">시행일: 2025년 9월 16일</p>
+        <h2>6. 쿠키 및 유사 식별자</h2>
+        <p>웹페이지 이용 시 쿠키가 사용될 수 있으며, 브라우저 설정으로 저장을 거부할 수 있습니다.</p>
+        <p>앱에서는 광고식별자·설치 ID 등 유사 식별자가 활용될 수 있습니다.</p>
+
+        <h2>7. 아동의 개인정보 보호(만 14세 미만)</h2>
+        <ul>
+          <li>회사는 만 14세 미만 아동의 개인정보를 법정대리인 동의 없이 수집하지 않습니다.</li>
+          <li>불가피하게 수집이 필요한 경우 별도 고지 및 법정대리인 동의 절차를 거칩니다.</li>
+        </ul>
+
+        <h2>8. 이용자 및 법정대리인의 권리</h2>
+        <ul>
+          <li>이용자는 개인정보 열람·정정·삭제·처리정지·동의철회를 요구할 수 있으며, 회사는 지체 없이 조치합니다.</li>
+          <li>광고 맞춤설정은 OS/플랫폼 설정(광고 추적 제한, ADID 재설정 등)에서 변경할 수 있습니다.</li>
+        </ul>
+
+        <h2>9. 안전성 확보조치</h2>
+        <p>최소 수집, 암호화, 접근통제, 접근기록 보관 등 법령상 요구되는 기술·관리적 보호조치를 적용합니다.</p>
+
+        <h2>10. 개인정보의 파기</h2>
+        <p>보유기간 경과 또는 처리 목적 달성 시 지체 없이 파기합니다. 전자적 파일은 복구 불가한 방식으로 삭제하고, 출력물은 분쇄·소각합니다.</p>
+
+        <h2>11. 민원 및 권익침해 구제</h2>
+        <p>문의: support@tribgames.com</p>
+        <p>관계기관 도움은 회사 공지사항 또는 문의를 통해 안내받을 수 있습니다.</p>
+
+        <h2>12. 처리방침의 변경</h2>
+        <p>법령·서비스 변경에 따라 본 방침이 수정될 수 있으며, 시행 최소 7일 전 고지합니다. 수집·이용 목적의 중대한 변경, 제3자 제공 등 이용자 권리 제한에 중대한 사항은 사전 동의를 받을 수 있습니다.</p>
+      </div>
+
+      <div data-lang-block="en" hidden>
+        <h1>Privacy Policy</h1>
+
+        <h2>1. General</h2>
+        <p>The Company complies with applicable privacy laws. This Policy applies to the Company’s mobile game(s) and related services.</p>
+
+        <h2>2. Personal Data We Process</h2>
+        <ul>
+          <li>(1) Required (operation): device info (model/OS/language/country), app version, ad identifiers (ADID/IDFA), IP, usage logs (sessions/events/performance), crash/error logs</li>
+          <li>(2) When purchasing: purchase identifiers, transaction time/amount/item, refund/complaint records (as provided by platforms)</li>
+          <li>(3) Optional (support): email address, nickname, user-provided details</li>
+        </ul>
+        <p>No collection or use of location data.</p>
+
+        <h2>3. Purposes</h2>
+        <p>Provide, maintain, and improve the Service; diagnose errors and prevent abuse; deliver ads and measure performance; analyze usage; process payments; verify purchases; and handle refunds and inquiries.</p>
+
+        <h2>4. Retention</h2>
+        <p>Delete without undue delay after achieving the purpose. Where required by law:</p>
+        <ul>
+          <li>Contracts/withdrawals 5 years</li>
+          <li>Payments & supply 5 years</li>
+          <li>Complaints/disputes 3 years</li>
+          <li>Access logs 3 months</li>
+        </ul>
+        <p>Third-party SDK vendors follow their own policies (e.g., certain crash data ~90 days on dashboards).</p>
+
+        <h2>5. Third-Party Processing & Transfers</h2>
+        <p>We use the tools below; providers may process/store data on servers outside Korea.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Provider</th>
+              <th>Purpose</th>
+              <th>Transfer Country</th>
+              <th>Retention/Deletion</th>
+              <th>Policy URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Advertising</td>
+              <td>Google AdMob</td>
+              <td>Ad delivery, performance measurement, fraud prevention</td>
+              <td>U.S. etc.</td>
+              <td>Per provider policy</td>
+              <td><a href="https://support.google.com/admob/answer/6128543">Policy 1</a><br><a href="https://support.google.com/admob/answer/10022365">Policy 2</a></td>
+            </tr>
+            <tr>
+              <td>Analytics/Crashes</td>
+              <td>Google Firebase (Analytics/Crashlytics)</td>
+              <td>Usage analytics, performance monitoring, crash analysis</td>
+              <td>U.S. etc.</td>
+              <td>Some dashboard data ~90 days</td>
+              <td><a href="https://firebase.google.com/support/privacy">Policy 1</a><br><a href="https://firebase.google.com/terms/data-processing-terms">Policy 2</a></td>
+            </tr>
+            <tr>
+              <td>Consent (if used)</td>
+              <td>Google UMP SDK</td>
+              <td>Consent collection & management</td>
+              <td>U.S. etc.</td>
+              <td>Per provider policy</td>
+              <td><a href="https://www.google.com/about/company/user-consent-policy/">Policy 1</a><br><a href="https://developers.google.com/admob/android/privacy">Policy 2</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Update the table promptly if your actual SDK list differs.</p>
+
+        <h2>6. Cookies & Similar Identifiers</h2>
+        <p>Cookies may be used on web pages; users can refuse/delete them in browser settings. Apps may use similar identifiers (ad IDs, install IDs).</p>
+
+        <h2>7. Children’s Privacy (Under 14)</h2>
+        <p>No collection without verifiable guardian consent; if necessary, prior notice and consent will be obtained.</p>
+
+        <h2>8. User & Guardian Rights</h2>
+        <p>Users may request access/correction/deletion/restriction/withdrawal of consent; the Company will act without undue delay. Personalized ads can be adjusted in OS/platform settings.</p>
+
+        <h2>9. Security Measures</h2>
+        <p>Data minimization, encryption, access control, and log retention as required by law.</p>
+
+        <h2>10. Destruction</h2>
+        <p>Upon expiry of retention or achievement of purposes, data is destroyed without delay (irrecoverable deletion for electronic files; shredding/incineration for paper).</p>
+
+        <h2>11. Complaints & Remedies</h2>
+        <p>Contact: support@tribgames.com<br>Guidance to relevant authorities is available upon request.</p>
+
+        <h2>12. Changes</h2>
+        <p>Changes may be made due to law/service updates and will be announced at least 7 days prior to effect. Material changes (e.g., new purposes or third-party sharing) may require advance consent.</p>
+      </div>
     </article>
   </main>
   <footer class="site-footer">
@@ -72,8 +236,8 @@
         </div>
         <div class="footer-info">
           <p data-i18n="footer.address">34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128</p>
-          <p data-i18n="footer.email">contact@tribigames.com</p>
-          <p data-i18n="footer.copyright">2025 TRIB GAMES All rights rewerved.</p>
+          <p data-i18n="footer.email">support@tribgames.com</p>
+          <p data-i18n="footer.copyright">2025 TRIB GAMES All rights reserved.</p>
         </div>
         <nav class="footer-links" aria-label="법적 고지">
           <a href="../terms/" data-i18n="footer.link.terms">이용약관</a>

@@ -15,8 +15,8 @@
     ko: {
       'home.heroCopy': '픽셀 감성과 전략적 재미를 담아 전 세계 게이머에게 새로운 모험을 선사합니다.',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
-      'footer.email': 'contact@tribigames.com',
-      'footer.copyright': '2025 TRIB GAMES All rights rewerved.',
+      'footer.email': 'support@tribgames.com',
+      'footer.copyright': '2025 TRIB GAMES All rights reserved.',
       'footer.link.terms': '이용약관',
       'footer.link.privacy': '개인정보처리방침',
       'terms.title': '이용약관',
@@ -55,8 +55,8 @@
     en: {
       'home.heroCopy': 'Blending pixel charm with strategic depth to deliver new adventures to players worldwide.',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
-      'footer.email': 'contact@tribigames.com',
-      'footer.copyright': '2025 TRIB GAMES All rights rewerved.',
+      'footer.email': 'support@tribgames.com',
+      'footer.copyright': '2025 TRIB GAMES All rights reserved.',
       'footer.link.terms': 'Terms of Service',
       'footer.link.privacy': 'Privacy Policy',
       'terms.title': 'Terms of Service',
@@ -140,6 +140,11 @@
       if (typeof text === 'string') {
         node.textContent = text;
       }
+    });
+
+    document.querySelectorAll('[data-lang-block]').forEach((node) => {
+      const blockLang = node.getAttribute('data-lang-block');
+      node.hidden = blockLang !== targetLang;
     });
 
     states.forEach((state) => {

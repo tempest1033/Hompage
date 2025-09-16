@@ -360,10 +360,10 @@ body.legal-page {
 
   /* spacing */
   padding-inline: calc(var(--side-gap) + env(safe-area-inset-left)) calc(var(--side-gap) + env(safe-area-inset-right));
-  padding-top: calc(var(--header-h) + clamp(12px, 1.8vw, 24px)); /* 헤더 높이 + 살짝 */
-  padding-bottom: clamp(84px, 10vw, 160px);
+  padding-top: clamp(8px, 1.5vw, 16px);
+  padding-bottom: clamp(40px, 5vw, 88px);
 
-  gap: clamp(48px, 7vw, 100px);  /* 섹션 간격 */
+  gap: clamp(12px, 2.5vw, 36px);  /* 섹션 간격 */
 }
 
 .legal-page .site-main > *:first-child { margin-top: 0; }
@@ -372,7 +372,8 @@ body.legal-page {
 .legal-container {
   width: 100%; max-width: 960px; margin: 0 auto;
   background: linear-gradient(180deg, rgba(16,23,49,.75) 0%, rgba(10,15,35,.85) 100%), var(--surface);
-  padding: clamp(36px, 5vw, 64px);
+  padding-block: clamp(20px, 4vw, 40px);
+  padding-inline: clamp(20px, 4vw, 48px);
   border-radius: var(--radius-lg);
   box-shadow: var(--sh-card);
   line-height: 1.72;
@@ -388,7 +389,7 @@ body.legal-page {
 /* 앵커 점프 시 헤더에 가리지 않도록 */
 .legal-container h1,
 .legal-container h2 {
-  scroll-margin-top: calc(var(--header-h) + 16px);
+  scroll-margin-top: calc(var(--header-h) + 12px);
 }
 
 /* ---------- Scrollbar (subtle) ---------- */
@@ -437,8 +438,8 @@ a:focus-visible, button:focus-visible {
     text-align: center;
     height: auto;
     min-height: var(--footer-h-sm);
-    padding-block: 18px;
-    gap: 12px;
+    padding-block: 14px;
+    gap: 10px;
   }
   .footer-inner,
   .footer-content {
@@ -446,7 +447,7 @@ a:focus-visible, button:focus-visible {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     width: 100%;
   }
   .footer-links {
@@ -456,7 +457,7 @@ a:focus-visible, button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: center;
     justify-items: center;
-    gap: 8px;
+    gap: 4px;
     align-items: flex-start;
     align-content: flex-start;
   }
@@ -466,17 +467,17 @@ a:focus-visible, button:focus-visible {
     justify-content: center;
     width: 100%;
     text-align: center;
-    padding-block: 4px;
+    padding-block: 2px;
   }
 }
 @media (max-width: 720px) {
   .header-label { height: auto; min-height: var(--header-h-sm); }
   .legal-container h1,
   .legal-container h2 {
-    scroll-margin-top: calc(var(--header-h-sm) + 16px);
+    scroll-margin-top: calc(var(--header-h-sm) + 12px);
   }
   .legal-page .site-main {
-    padding-top: calc(var(--header-h-sm) + 14px);
+    padding-top: clamp(6px, 1.2vw, 14px);
   }
 }
 
