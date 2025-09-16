@@ -418,6 +418,13 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
+  /* 모바일에서 언어 토글을 헤더 오른쪽 끝에 밀착 */
+  .header-inner { padding-inline: 0; }
+  .header-actions { right: calc(env(safe-area-inset-right) - var(--side-gap)); }
+
+  /* 모바일에서는 푸터 브랜드 로고 숨김 */
+  .footer-brand { display: none; }
+
   .footer-label { flex-direction: column; align-items: center; text-align: center; padding-block: 18px; gap: 12px; }
   .footer-inner, .footer-content {
     display: flex;
@@ -436,6 +443,9 @@ a:focus-visible, button:focus-visible {
     gap: 10px;
   }
   .footer-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     text-align: center;
   }
