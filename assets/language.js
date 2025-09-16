@@ -94,6 +94,40 @@
     }
   };
 
+  const isKoreanLocale = (value) => {
+    if (typeof value !== 'string') {
+      return false;
+    }
+    const normalized = value.trim().toLowerCase();
+    return normalized.startsWith('ko');
+  };
+
+  const detectDefaultLanguage = () => {
+    try {
+      const nav = window.navigator;
+      if (nav) {
+        const candidates = [];
+        if (Array.isArray(nav.languages)) {
+          candidates.push(...nav.languages);
+        }
+        if (typeof nav.language === 'string') {
+          candidates.push(nav.language);
+        }
+        if (typeof nav.userLanguage === 'string') {
+          candidates.push(nav.userLanguage);
+        }
+        for (const candidate of candidates) {
+          if (isKoreanLocale(candidate)) {
+            return 'ko';
+          }
+        }
+      }
+    } catch (error) {
+      /* ignore navigator access errors */
+    }
+    return 'en';
+  };
+
   const states = [];
 
   const getSavedLanguage = () => {
@@ -256,7 +290,7 @@
     });
   });
 
-  const initialLang = getSavedLanguage() || document.documentElement.lang || 'ko';
+  const initialLang = getSavedLanguage() || detectDefaultLanguage();
   applyLanguage(initialLang);
 
   document.addEventListener('click', () => {
