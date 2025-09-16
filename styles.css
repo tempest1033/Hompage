@@ -431,9 +431,6 @@ a:focus-visible, button:focus-visible {
   .footer-brand img {
     display: none !important;
   }
-}
-@media (max-width: 720px) {
-  .header-label { height: auto; min-height: var(--header-h-sm); }
   .footer-label {
     flex-direction: column;
     align-items: center;
@@ -467,6 +464,9 @@ a:focus-visible, button:focus-visible {
     width: 100%;
     text-align: center;
   }
+}
+@media (max-width: 720px) {
+  .header-label { height: auto; min-height: var(--header-h-sm); }
   .legal-container h1,
   .legal-container h2 {
     scroll-margin-top: calc(var(--header-h-sm) + 16px);
