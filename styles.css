@@ -446,7 +446,7 @@ a:focus-visible, button:focus-visible {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
   }
   .footer-links {
@@ -456,14 +456,17 @@ a:focus-visible, button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: center;
     justify-items: center;
-    gap: 10px;
+    gap: 8px;
+    align-items: flex-start;
+    align-content: flex-start;
   }
   .footer-links a {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
     text-align: center;
+    padding-block: 4px;
   }
 }
 @media (max-width: 720px) {
