@@ -1,0 +1,591 @@
+﻿/* TRIBGAMES/* 기본 스타일 */
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans KR", "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+  --side-gap: clamp(20px, 5vw, 56px);
+  --content-max: 1080px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.home {
+  background: radial-gradient(circle at top, #ffffff 0%, #f0f6ff 100%);
+  color: #0c1c3f;
+  padding: 0;
+}
+
+.site-header,
+.site-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+}
+
+.site-header {
+  top: 0;
+  padding: 0;
+}
+
+.site-footer {
+  bottom: 0;
+  padding: 0;
+  margin-top: auto;
+}
+
+.header-label,
+.footer-label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: clamp(18px, 3vw, 26px) var(--side-gap);
+  backdrop-filter: blur(12px);
+}
+
+.layout-row {
+  width: min(var(--content-max), 100%);
+  margin: 0 auto;
+  display: flex;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(12px, 3vw, 24px);
+  width: min(var(--content-max), 100%);
+  margin: 0 auto;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.language-select {
+  position: relative;
+  width: 180px;
+}
+
+.language-select__toggle {
+  position: relative;
+  width: 100%;
+  padding: 10px 40px 10px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: linear-gradient(90deg, rgba(0, 145, 255, 0.92) 0%, rgba(48, 195, 255, 0.92) 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.language-select__toggle:hover,
+.language-select__toggle:focus-visible {
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(0, 92, 214, 0.45);
+  outline: none;
+}
+
+.language-select__toggle::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 10px;
+  height: 6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(255, 255, 255, 0.85);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.language-select__menu {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 10px);
+  transform: translate(-50%, -6px);
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(180deg, rgba(0, 78, 166, 0.97) 0%, rgba(0, 40, 92, 0.92) 100%);
+  box-shadow: 0 18px 40px rgba(0, 45, 120, 0.45);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 30;
+}
+
+.language-select.is-open .language-select__menu {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.language-select__option {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.language-select__option:hover,
+.language-select__option:focus-visible {
+  outline: none;
+  background: linear-gradient(90deg, #0091ff 0%, #30c3ff 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(0, 82, 174, 0.55);
+}
+
+.language-select__option[aria-selected="true"] {
+  background: linear-gradient(90deg, #0091ff 0%, #30c3ff 100%);
+  box-shadow: 0 14px 32px rgba(0, 82, 174, 0.55);
+}
+
+.content-wrap {
+  width: min(var(--content-max), 100%);
+  margin: 0 auto;
+}
+
+.header-label {
+  justify-content: center;
+  background: linear-gradient(90deg, #0091ff 0%, #30c3ff 100%);
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0 6px 18px rgba(0, 99, 214, 0.25);
+  color: #fff;
+}
+
+.footer-label {
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #0091ff 0%, #30c3ff 100%);
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0 -4px 10px rgba(0, 80, 168, 0.16);
+  flex-direction: row;
+  gap: clamp(10px, 2.5vw, 20px);
+  text-align: left;
+  color: #ffffff;
+  padding: clamp(10px, 2vw, 16px) var(--side-gap);
+}
+
+.brand-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.brand-link:hover,
+.brand-link:focus {
+  opacity: 0.85;
+}
+
+.brand-logo {
+  width: clamp(160px, 18vw, 240px);
+  height: auto;
+}
+
+/* 기본 메인 */
+.site-main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(80px, 12vw, 200px) var(--side-gap);
+}
+
+/* 홈 전용 레이아웃 (히어로) */
+.home .site-main {
+  /* ✅ 홈 메인 컨텐츠를 세로 플렉스로 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 8vw, 96px) var(--side-gap) clamp(80px, 12vw, 200px);
+}
+
+.content-wrap {
+  width: min(var(--content-max), 100%);
+  margin: 0 auto;
+}
+
+.home .content-wrap {
+  /* ✅ 래퍼 자체도 세로 플렉스로 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(24px, 6vw, 40px);
+  text-align: center;
+  margin: 0 auto;            /* ✅ 시각 중심 보강 */
+}
+
+.hero-logo {
+  width: min(520px, 90vw);
+  height: auto;
+  display: block;            /* ✅ inline 여백 영향 제거 */
+  margin-inline: auto;       /* ✅ 이미지 자체 중앙 */
+}
+
+.hero-copy {
+  margin: 0;
+  font-size: clamp(18px, 3vw, 22px);
+  line-height: 1.6;
+  color: #1d3c66;
+}
+
+.footer-brand img {
+  width: clamp(100px, 14vw, 140px);
+  height: auto;
+}
+
+.footer-info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.2s ease;
+}
+
+.footer-links a:hover::after,
+.footer-links a:focus::after {
+  transform: scaleX(1);
+}
+
+/* 법적 페이지 */
+body.legal-page {
+  background: #f6f6f8;
+  color: #1b1d21;
+  padding: 0;
+}
+
+.legal-page .site-header {
+  position: sticky;
+  top: 0;
+  padding: 0;
+}
+
+.legal-page .header-label {
+  background: linear-gradient(90deg, #0091ff 0%, #30c3ff 100%);
+  border: 0;
+  box-shadow: 0 10px 24px rgba(0, 99, 214, 0.25);
+  color: #ffffff;
+}
+
+.legal-page .site-main {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(64px, 9vw, 120px);
+  align-items: center;
+  width: min(var(--content-max), 100%);
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 140px) var(--side-gap) clamp(80px, 10vw, 160px);
+}
+
+.legal-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: clamp(36px, 5vw, 64px);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(18, 23, 28, 0.12);
+  line-height: 1.7;
+}
+
+.legal-container h1 {
+  margin-top: 0;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.02em;
+}
+
+.legal-container h2 {
+  margin-top: 32px;
+  font-size: clamp(20px, 3vw, 26px);
+}
+
+.legal-container p,
+.legal-container li {
+  font-size: clamp(15px, 2.2vw, 17px);
+  margin: 12px 0;
+}
+
+.legal-page .footer-label {
+  background: linear-gradient(90deg, #0091ff 0%, #30c3ff 100%);
+  border: 0;
+  color: #ffffff;
+  box-shadow: 0 -4px 10px rgba(0, 80, 168, 0.16);
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+  padding: clamp(12px, 2vw, 18px) clamp(20px, 5vw, 48px);
+}
+
+.legal-page .footer-info,
+.legal-page .footer-links a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-content {
+  position: relative;
+  width: min(var(--content-max), 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 3vw, 28px);
+}
+
+.footer-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .language-select {
+    width: min(240px, 80vw);
+  }
+
+  .language-select__menu {
+    left: 50%;
+    min-width: 100%;
+  }
+
+  .footer-label,
+  .legal-page .footer-label {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 18px 28px;
+    gap: 12px;
+  }
+
+  .footer-content {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-info,
+  .legal-page .footer-info {
+    position: static;
+    transform: none;
+    padding-inline: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* Layout stability */
+html { scrollbar-gutter: stable both-edges; }
+@supports not (scrollbar-gutter: stable) { html { overflow-y: scroll; } }
+.site-header .header-inner { width: min(var(--content-max), 100%); margin: 0 auto; }
+
+/* Footer size & gap unification */
+:root { --footer-pad-block: clamp(18px, 3vw, 26px); --footer-gap: clamp(8px, 2vw, 16px); }
+.footer-label { padding-block: var(--footer-pad-block); padding-inline: var(--side-gap); gap: var(--footer-gap); }
+.legal-page .footer-label { padding-block: var(--footer-pad-block) !important; padding-inline: var(--side-gap) !important; gap: var(--footer-gap) !important; }
+@media (max-width: 768px) {
+  .footer-label,
+  .legal-page .footer-label { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* Legal pages: place content immediately under the header label */
+.legal-page .site-main {
+  justify-content: center;     /* keep horizontal center */
+  align-items: flex-start;     /* stick content to the top */
+  padding-top: 0;              /* remove extra top gap */
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+
+/* Ensure the first element doesn't reintroduce a top gap */
+.legal-page .site-main > *:first-child {
+  margin-top: 0;
+}
+
+/* Optional: if legal pages use a wrapper, nudge it as well */
+.legal-page .content-wrap { margin-top: 0; }
+
+/* ==============================================
+   v5 Tweaks
+   - Legal pages: add a subtle top gap under header label
+   - Footer info: tighter line-height and smaller gaps
+   ============================================== */
+
+/* Subtle space between header label and legal contents */
+.legal-page .site-main {
+  padding-top: clamp(8px, 1.2vw, 16px);  /* was 0 */
+}
+
+/* Footer info text: reduce line spacing */
+.footer-info {
+  line-height: 1.1;  /* was 1.2 */
+}
+
+/* Footer links/layout: reduce inter-item gap a bit */
+.footer-label {
+  gap: clamp(4px, 1vw, 10px); /* was clamp(8px, 2vw, 16px) in v3 */
+}
+
+/* Ensure child blocks in footer info don't add extra margins */
+.footer-info > * { margin: 0; }
+
+/* ==============================================
+   v6 — Fixed Header/Footer Label Heights (with responsive fallback)
+   - Locks visual heights of header/footer labels across pages
+   - Prevents per-page content from changing label heights
+   - Keeps mobile flexible to avoid clipping
+   ============================================== */
+
+:root {
+  /* Desktop/tablet target heights for labels */
+  --header-h: clamp(64px, 9vw, 84px);
+  --footer-h: clamp(60px, 8vw, 80px);
+
+  /* Small devices minimums */
+  --header-h-sm: 56px;
+  --footer-h-sm: 56px;
+}
+
+/* Make label wrappers box-sizing aware so padding stays inside the fixed height */
+.header-label, .footer-label { box-sizing: border-box; }
+
+/* Fixed heights for labels (desktop first) */
+.header-label {
+  height: var(--header-h);
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+}
+
+.footer-label {
+  height: var(--footer-h);
+  min-height: var(--footer-h);
+  display: flex;
+  align-items: center;
+}
+
+/* Keep inner layouts vertically centered within fixed bars */
+.header-label .header-inner,
+.footer-label .footer-inner,
+.footer-label .footer-info,
+.footer-label .footer-links {
+  align-items: center;
+}
+
+/* Ensure no accidental extra top/bottom margins inside the fixed bars */
+.header-label > *,
+.footer-label > * { margin-top: 0; margin-bottom: 0; }
+
+/* Prevent unexpected line wraps from growing the bar height */
+.footer-label .footer-info,
+.footer-label .footer-links { overflow: hidden; }
+
+/* Responsive fallback: on narrow screens allow auto height to avoid clipping */
+@media (max-width: 640px) {
+  .header-label {
+    height: auto;
+    min-height: var(--header-h-sm);
+  }
+  .footer-label {
+    height: auto;
+    min-height: var(--footer-h-sm);
+  }
+}
