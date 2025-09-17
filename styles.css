@@ -385,6 +385,41 @@ body.legal-page {
 .legal-container p,
 .legal-container li { font-size: var(--fz-body); margin: 12px 0; color: var(--text-dim); }
 .legal-container a { color: #9ccfff; text-underline-offset: 2px; }
+.legal-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: clamp(16px, 3vw, 28px);
+  background: rgba(10,15,35,.72);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.legal-container thead { background: rgba(28,42,88,.68); }
+.legal-container th,
+.legal-container td {
+  padding: clamp(10px, 2.2vw, 16px);
+  text-align: left;
+  font-size: var(--fz-body);
+  color: var(--text-dim);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-right: 1px solid rgba(255,255,255,.06);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.legal-container th {
+  color: #f1f6ff;
+  font-weight: 700;
+}
+.legal-container tbody tr:last-child th,
+.legal-container tbody tr:last-child td { border-bottom: none; }
+.legal-container th:last-child,
+.legal-container td:last-child { border-right: none; }
+.legal-container table a {
+  color: #a8d4ff;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
 
 /* 앵커 점프 시 헤더에 가리지 않도록 */
 .legal-container h1,
