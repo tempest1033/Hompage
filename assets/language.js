@@ -13,7 +13,8 @@
   const STORAGE_KEY = 'tribigames-language';
   const translations = {
     ko: {
-      'home.heroCopy': '픽셀 감성과 전략적 재미를 담아 전 세계 게이머에게 새로운 모험을 선사합니다.',
+      'home.heroLine1': '나만의 전략으로 완성하는 덱빌딩 전략 게임',
+      'home.heroLine2': '클래시 텍티카: 머지 배틀',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
       'footer.email': 'support@tribgames.com',
       'footer.copyright': '2025 TRIB GAMES All rights reserved.',
@@ -53,7 +54,8 @@
       'privacy.effectiveDate': '시행일: 2025년 9월 16일'
     },
     en: {
-      'home.heroCopy': 'Blending pixel charm with strategic depth to deliver new adventures to players worldwide.',
+      'home.heroLine1': 'Build the ultimate deck with your own tactics',
+      'home.heroLine2': 'Clash Tactica: Merge Battle',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
       'footer.email': 'support@tribgames.com',
       'footer.copyright': '2025 TRIB GAMES All rights reserved.',

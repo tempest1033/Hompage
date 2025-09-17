@@ -271,6 +271,7 @@ body {
   background: linear-gradient(180deg, #e9f2ff 0%, #c8d8ff 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   text-shadow: 0 1px 0 rgba(0,0,0,.25);
+  text-align: center;
 }
 
 /* ---------- Footer ---------- */
