@@ -13,7 +13,7 @@
   const STORAGE_KEY = 'tribigames-language';
   const translations = {
     ko: {
-      'home.heroLine1': '나만의 전략으로 완성하는 덱빌딩 전략 게임',
+      'home.heroLine1': '나만의 전략으로 완성되는 덱빌딩 전략 게임',
       'home.heroLine2': '클래시 텍티가: 머지 배틀',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
       'footer.email': 'support@tribgames.com',
@@ -54,7 +54,7 @@
       'privacy.effectiveDate': '시행일: 2025년 9월 16일'
     },
     en: {
-      'home.heroLine1': 'Build the ultimate deck with your own tactics',
+      'home.heroLine1': 'A deck-building strategy game shaped by your tactics',
       'home.heroLine2': 'Clash Tectiga: Merge Battle',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
       'footer.email': 'support@tribgames.com',
