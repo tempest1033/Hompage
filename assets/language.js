@@ -14,7 +14,7 @@
   const translations = {
     ko: {
       'home.heroLine1': '나만의 전략으로 완성되는 덱빌딩 전략 게임',
-      'home.heroLine2': '클래시 텍티가: 머지 배틀',
+      'home.heroLine2': '클래시 택티카: 머지 배틀',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
       'footer.email': 'support@tribgames.com',
       'footer.copyright': '2025 TRIB GAMES All rights reserved.',
@@ -55,7 +55,7 @@
     },
     en: {
       'home.heroLine1': 'A deck-building strategy game shaped by your tactics',
-      'home.heroLine2': 'Clash Tectiga: Merge Battle',
+      'home.heroLine2': 'Clash Tactica: Merge Battle',
       'footer.address': '34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128',
       'footer.email': 'support@tribgames.com',
       'footer.copyright': '2025 TRIB GAMES All rights reserved.',
