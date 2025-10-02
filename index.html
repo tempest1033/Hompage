@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>트리비게임즈</title>
+
+  <!-- Critical resource preloads -->
+  <link rel="preload" href="assets/Logo.png" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/ComLogo.png" as="image">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="assets/language.js" as="script">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="home">
@@ -12,7 +19,7 @@
       <div class="header-inner">
         <div class="header-brand">
           <a class="brand-link" href="./" aria-label="홈으로 이동">
-            <img class="brand-logo" src="assets/ComLogo.png" alt="트리비게임즈 로고">
+            <img class="brand-logo" src="assets/ComLogo.png" alt="트리비게임즈 로고" loading="eager" decoding="async">
           </a>
         </div>
         <div class="header-actions">
@@ -37,14 +44,14 @@
   <main class="site-main">
     <div class="content-wrap">
       <div class="hero-block">
-        <img class="hero-logo" src="assets/Logo.png" alt="트리비게임즈 대표 게임 로고">
+        <img class="hero-logo" src="assets/Logo.png" alt="트리비게임즈 대표 게임 로고" fetchpriority="high" decoding="async">
         <div class="download-buttons">
           <a href="#" class="download-btn download-btn--google" aria-label="Google Play에서 다운로드">
-            <img src="assets/badge-google-play.svg" alt="Google Play에서 다운로드" class="download-btn__icon">
+            <img src="assets/badge-google-play.svg" alt="Google Play에서 다운로드" class="download-btn__icon" loading="eager" decoding="async">
             <span class="download-btn__text" data-i18n="download.googlePlay">Google Play</span>
           </a>
           <a href="#" class="download-btn download-btn--apple" aria-label="App Store에서 다운로드">
-            <img src="assets/badge-app-store.svg" alt="App Store에서 다운로드" class="download-btn__icon">
+            <img src="assets/badge-app-store.svg" alt="App Store에서 다운로드" class="download-btn__icon" loading="eager" decoding="async">
             <span class="download-btn__text" data-i18n="download.appStore">App Store</span>
           </a>
         </div>
@@ -59,7 +66,7 @@
     <div class="footer-label">
       <div class="footer-content">
         <div class="footer-brand">
-          <img src="assets/ComLogo.png" alt="트리비게임즈 로고">
+          <img src="assets/ComLogo.png" alt="트리비게임즈 로고" loading="lazy" decoding="async">
         </div>
         <div class="footer-info">
           <p data-i18n="footer.address">34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128</p>
