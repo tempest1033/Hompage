@@ -424,11 +424,10 @@ body > * {
   }
 }
 .download-btn__icon {
-  height: clamp(54px, 8vw, 72px);
-  width: auto;
-  max-width: min(44vw, 240px);
+  width: clamp(140px, 20vw, 180px);
+  height: clamp(42px, 6vw, 54px);
   display: block;
-  object-fit: contain;
+  object-fit: fill;
   position: relative;
   z-index: 1;
   transition: transform 0.3s ease;
