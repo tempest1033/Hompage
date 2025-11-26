@@ -1,6 +1,41 @@
 /* =========================================================
-   TRIBGAMES - Simple & Modern Design
+   TRIBGAMES - Premium Game Landing Design
    ========================================================= */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-secondary: #1a1a1a;
+  --color-white: #ffffff;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --color-text-subtle: rgba(255, 255, 255, 0.5);
+
+  /* Accent colors - warm gold/amber for game feel */
+  --color-accent: #f59e0b;
+  --color-accent-light: #fbbf24;
+  --color-accent-glow: rgba(245, 158, 11, 0.4);
+
+  /* Secondary accent - cool blue */
+  --color-secondary: #0ea5e9;
+  --color-secondary-light: #38bdf8;
+
+  /* UI colors */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-light: rgba(0, 0, 0, 0.08);
+  --color-glass: rgba(255, 255, 255, 0.95);
+  --color-glass-dark: rgba(0, 0, 0, 0.06);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 20px 44px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 20px var(--color-accent-glow);
+
+  /* Timing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
 /* ---------- Reset & Base ---------- */
 *, *::before, *::after {
@@ -14,6 +49,7 @@ html {
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -21,8 +57,8 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #0a0a0a;
-  color: #fff;
+  background: var(--color-bg);
+  color: var(--color-text);
   overflow: hidden;
 }
 
@@ -43,6 +79,25 @@ button {
   background: none;
 }
 
+/* ---------- Custom Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 /* ---------- Header ---------- */
 .header {
   position: fixed;
@@ -50,9 +105,15 @@ button {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-glass);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border-light);
+  transition: box-shadow 0.3s ease;
+}
+
+.header:hover {
+  box-shadow: var(--shadow-sm);
 }
 
 .header__inner {
@@ -68,6 +129,11 @@ button {
 .header__brand {
   display: flex;
   align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.header__brand:hover {
+  opacity: 0.8;
 }
 
 .header__logo {
@@ -81,7 +147,7 @@ button {
   gap: 16px;
 }
 
-/* Language Select */
+/* ---------- Language Select ---------- */
 .language-select {
   position: relative;
 }
@@ -93,19 +159,29 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.06);
-  color: rgba(0, 0, 0, 0.7);
-  transition: all 0.2s ease;
+  background: var(--color-glass-dark);
+  color: rgba(0, 0, 0, 0.6);
+  transition: all 0.25s var(--ease-out);
 }
 
 .language-select__toggle:hover {
   background: rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.language-select__toggle:active {
+  transform: scale(0.98);
 }
 
 .language-select__icon {
   width: 20px;
   height: 20px;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.language-select.is-open .language-select__icon {
+  transform: rotate(20deg);
 }
 
 .language-select__current {
@@ -122,46 +198,47 @@ button {
 
 .language-select__menu {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 8px);
   right: 0;
-  min-width: 160px;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.2);
+  min-width: 140px;
+  padding: 8px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
-  transition: all 0.2s ease;
+  transform: translateY(-8px) scale(0.96);
+  transform-origin: top right;
+  transition: all 0.25s var(--ease-out);
 }
 
 .language-select.is-open .language-select__menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .language-select__option {
   width: 100%;
-  min-height: 44px;
   padding: 12px 16px;
-  border-radius: 12px;
+  border-radius: 10px;
   text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 15px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
   font-weight: 600;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .language-select__option:hover {
   background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .language-select__option[aria-selected="true"] {
-  background: linear-gradient(90deg, rgba(14,165,233,.15) 0%, rgba(167,139,250,.15) 100%);
-  color: #0ea5e9;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.1) 100%);
+  color: var(--color-accent);
 }
 
 /* ---------- Hero Section ---------- */
@@ -183,7 +260,7 @@ button {
   right: 0;
   bottom: 64px;
   z-index: 0;
-  background: #1a1a1a;
+  background: var(--color-bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,7 +274,10 @@ button {
   max-height: 95%;
   object-fit: contain;
   border-radius: 24px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.5s var(--ease-out);
 }
 
 .hero__overlay {
@@ -205,11 +285,13 @@ button {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10, 10, 10, 0.3) 0%,
-    rgba(10, 10, 10, 0.1) 30%,
-    rgba(10, 10, 10, 0.1) 60%,
-    rgba(10, 10, 10, 0.8) 100%
+    rgba(10, 10, 10, 0.4) 0%,
+    rgba(10, 10, 10, 0.1) 25%,
+    rgba(10, 10, 10, 0.05) 50%,
+    rgba(10, 10, 10, 0.6) 85%,
+    rgba(10, 10, 10, 0.85) 100%
   );
+  pointer-events: none;
 }
 
 .hero__content {
@@ -224,6 +306,7 @@ button {
   padding: 0 24px;
 }
 
+/* Game Logo with float animation */
 .hero__game-logo {
   position: absolute;
   top: 18%;
@@ -232,10 +315,13 @@ button {
   margin: 0 auto;
   width: min(420px, 85vw);
   height: auto;
-  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5));
-  animation: logoFadeIn 0.8s ease-out;
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.6));
+  animation:
+    logoFadeIn 0.8s var(--ease-out),
+    logoFloat 4s ease-in-out 1s infinite;
 }
 
+/* Bottom content area */
 .hero__bottom {
   position: absolute;
   bottom: 15%;
@@ -245,27 +331,30 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
-  animation: bottomFadeIn 0.8s ease-out 0.2s both;
+  gap: 28px;
+  animation: bottomFadeIn 0.8s var(--ease-out) 0.3s both;
 }
 
+/* Tagline styling */
 .hero__tagline {
-  font-size: clamp(14px, 3.5vw, 18px);
+  font-size: clamp(14px, 3.5vw, 17px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text-muted);
   text-align: center;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-  line-height: 1.8;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
 }
 
 .hero__tagline strong {
   display: block;
-  font-size: clamp(18px, 5vw, 26px);
+  font-size: clamp(20px, 5vw, 28px);
   font-weight: 700;
-  color: #fff;
-  margin-top: 4px;
+  color: var(--color-white);
+  margin-top: 8px;
 }
 
+/* Store buttons */
 .hero__buttons {
   display: flex;
   gap: 16px;
@@ -275,16 +364,22 @@ button {
 
 .store-btn {
   display: block;
-  transition: transform 0.2s ease;
+  border-radius: 12px;
+  transition: all 0.3s var(--ease-out);
 }
 
 .store-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+.store-btn:active {
+  transform: translateY(-1px);
 }
 
 .store-btn img {
-  height: 48px;
+  height: 50px;
   width: auto;
+  border-radius: 10px;
 }
 
 /* ---------- Footer ---------- */
@@ -295,12 +390,18 @@ button {
   right: 0;
   z-index: 100;
   height: 64px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-glass);
   backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-border-light);
   display: flex;
   align-items: center;
   padding: 0 24px;
+  transition: box-shadow 0.3s ease;
+}
+
+.footer:hover {
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .footer__inner {
@@ -311,6 +412,14 @@ button {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 24px;
+}
+
+.footer__brand {
+  transition: opacity 0.2s ease;
+}
+
+.footer__brand:hover {
+  opacity: 0.7;
 }
 
 .footer__brand img {
@@ -325,7 +434,7 @@ button {
   gap: 2px;
   text-align: center;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.45);
 }
 
 .footer__info p {
@@ -335,18 +444,35 @@ button {
 .footer__links {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .footer__links a {
-  color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 13px;
   font-weight: 600;
   transition: color 0.2s ease;
+  padding-bottom: 2px;
+}
+
+.footer__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width 0.3s var(--ease-out);
 }
 
 .footer__links a:hover {
-  color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.footer__links a:hover::after {
+  width: 100%;
 }
 
 /* ---------- Animations ---------- */
@@ -354,10 +480,21 @@ button {
   from {
     opacity: 0;
     top: 15%;
+    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.6)) blur(4px);
   }
   to {
     opacity: 1;
     top: 18%;
+    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.6)) blur(0);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
@@ -372,6 +509,15 @@ button {
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .header__inner {
@@ -383,6 +529,11 @@ button {
     height: 24px;
   }
 
+  .hero__bg {
+    top: 56px;
+    padding: 16px 24px;
+  }
+
   .hero__content {
     padding: 80px 16px 40px;
   }
@@ -392,21 +543,32 @@ button {
   }
 
   .hero__bottom {
-    gap: 20px;
+    gap: 24px;
   }
 
   .store-btn img {
-    height: 42px;
+    height: 44px;
   }
 
   .footer {
-    padding: 20px 16px;
+    height: 56px;
+    padding: 0 16px;
   }
 
   .footer__inner {
-    flex-direction: column;
-    text-align: center;
     gap: 16px;
+  }
+
+  .footer__info {
+    font-size: 11px;
+  }
+
+  .footer__links {
+    gap: 12px;
+  }
+
+  .footer__links a {
+    font-size: 12px;
   }
 }
 
@@ -416,7 +578,7 @@ button {
   }
 
   .hero__tagline {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .hero__buttons {
@@ -425,12 +587,20 @@ button {
   }
 
   .store-btn img {
-    height: 44px;
+    height: 46px;
+  }
+
+  .footer__brand {
+    display: none;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr auto;
   }
 
   .footer__info {
-    font-size: 12px;
-    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
@@ -438,6 +608,7 @@ button {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
@@ -445,18 +616,26 @@ button {
 /* Focus styles */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #60a5fa;
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
 /* ---------- Legal Pages (Terms, Privacy) ---------- */
 .legal-page {
-  background: #1a1a1a;
+  background: var(--color-bg-secondary);
   color: #1a1a1a;
   overflow-y: auto;
   height: auto;
   padding-top: 64px;
   padding-bottom: 64px;
+}
+
+.legal-page::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+.legal-page::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .site-header {
@@ -466,9 +645,10 @@ button:focus-visible {
   right: 0;
   z-index: 100;
   height: 64px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-glass);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .header-label {
@@ -493,6 +673,11 @@ button:focus-visible {
 .brand-link {
   display: flex;
   align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.brand-link:hover {
+  opacity: 0.8;
 }
 
 .brand-logo {
@@ -509,76 +694,118 @@ button:focus-visible {
 .site-main {
   flex: 1;
   padding: 48px 24px;
+  animation: contentFadeIn 0.5s var(--ease-out);
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .legal-container {
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
-  border-radius: 16px;
-  padding: 48px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: 56px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .legal-container h1 {
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   color: #1a1a1a;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
 }
 
 .legal-container h2 {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 28px 0 14px;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 32px 0 14px;
   color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legal-container h2::before {
+  content: '';
+  width: 3px;
+  height: 18px;
+  background: var(--color-accent);
+  border-radius: 2px;
 }
 
 .legal-container p {
   margin-bottom: 14px;
-  line-height: 1.8;
-  color: #444;
+  line-height: 1.85;
+  color: #4a4a4a;
   font-size: 15px;
 }
 
 .legal-container ul {
   margin-bottom: 14px;
-  padding-left: 24px;
+  padding-left: 20px;
 }
 
 .legal-container li {
-  margin-bottom: 6px;
-  line-height: 1.8;
-  color: #444;
+  margin-bottom: 8px;
+  line-height: 1.85;
+  color: #4a4a4a;
   font-size: 15px;
+}
+
+.legal-container li::marker {
+  color: var(--color-accent);
 }
 
 .legal-container table {
   width: 100%;
   border-collapse: collapse;
-  margin: 16px 0 24px;
+  margin: 20px 0 28px;
   font-size: 13px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #e8e8e8;
 }
 
 .legal-container th,
 .legal-container td {
-  padding: 10px;
-  border: 1px solid #e0e0e0;
+  padding: 12px 14px;
+  border: 1px solid #e8e8e8;
   text-align: left;
 }
 
 .legal-container th {
-  background: #f5f5f5;
+  background: #f8f8f8;
   font-weight: 600;
+  color: #333;
+}
+
+.legal-container td {
+  color: #555;
 }
 
 .legal-container a {
-  color: #0ea5e9;
-  text-decoration: underline;
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .legal-container a:hover {
   color: #0284c7;
+  text-decoration: underline;
 }
 
 .site-footer {
@@ -588,9 +815,10 @@ button:focus-visible {
   right: 0;
   z-index: 100;
   height: 64px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-glass);
   backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-border-light);
   display: flex;
   align-items: center;
   padding: 0 24px;
@@ -610,6 +838,14 @@ button:focus-visible {
   gap: 24px;
 }
 
+.footer-brand {
+  transition: opacity 0.2s ease;
+}
+
+.footer-brand:hover {
+  opacity: 0.7;
+}
+
 .footer-brand img {
   height: 24px;
   width: auto;
@@ -622,7 +858,7 @@ button:focus-visible {
   gap: 2px;
   text-align: center;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.45);
 }
 
 .footer-info p {
@@ -632,18 +868,35 @@ button:focus-visible {
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .footer-links a {
-  color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 13px;
   font-weight: 600;
   transition: color 0.2s ease;
+  padding-bottom: 2px;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width 0.3s var(--ease-out);
 }
 
 .footer-links a:hover {
-  color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
 }
 
 /* Legal page responsive */
@@ -670,17 +923,19 @@ button:focus-visible {
   }
 
   .legal-container {
-    padding: 24px;
-    border-radius: 12px;
+    padding: 28px 24px;
+    border-radius: 16px;
   }
 
   .legal-container h1 {
     font-size: 22px;
     margin-bottom: 24px;
+    padding-bottom: 16px;
   }
 
   .legal-container h2 {
     font-size: 16px;
+    margin: 24px 0 12px;
   }
 
   .legal-container p,
@@ -694,24 +949,46 @@ button:focus-visible {
 
   .legal-container th,
   .legal-container td {
-    padding: 6px;
+    padding: 8px 10px;
   }
 
   .site-footer {
+    height: 56px;
     padding: 0 16px;
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 8px;
+    gap: 16px;
+  }
+
+  .footer-info {
+    font-size: 11px;
+  }
+
+  .footer-links {
+    gap: 12px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-container {
+    padding: 24px 20px;
   }
 
   .footer-brand {
     display: none;
   }
 
-  .footer-links {
-    justify-content: center;
+  .footer-content {
+    grid-template-columns: 1fr auto;
+  }
+
+  .footer-info {
+    align-items: flex-start;
+    text-align: left;
   }
 }
