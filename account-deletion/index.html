@@ -1,40 +1,38 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>트리비게임즈 | 계정 삭제 안내</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="legal-page">
-  <header class="site-header">
-    <div class="header-label">
-      <div class="header-inner">
-        <div class="header-brand">
-          <a class="brand-link" href="../" aria-label="홈으로 이동">
-            <img class="brand-logo" src="../assets/ComLogo.png" alt="트리비게임즈 로고">
-          </a>
-        </div>
-        <div class="header-actions">
-          <div class="language-select" data-language-select>
-            <button type="button" class="language-select__toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="언어 선택">
-              <img class="language-select__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAnklEQVR4nO2XUQ6AIAxDuf/xvJD+7qOwMlZY1CYkBBr63GLE1n5N6na0M/TqzHNhQKgd3nocwgn2ANZAyHAGIAaB+pmho+EUhPHNlpf1jCGqAEQPZz0YABlVABCiCsDq4axnWIEtKgtQogUffQtAG2QAMBxUQQHQf/oSAO3051gNQYUDgKwWSO6F7L7sduytS/4NbCia54aTMNrQV+sBzIKkvDLgp+UAAAAASUVORK5CYII=" alt="">
-              <span class="language-select__current" data-language-current>한국어</span>
-            </button>
-            <ul class="language-select__menu" role="listbox" hidden>
-              <li>
-                <button type="button" role="option" class="language-select__option" data-language-option="ko" aria-selected="true">한국어</button>
-              </li>
-              <li>
-                <button type="button" role="option" class="language-select__option" data-language-option="en" aria-selected="false">English</button>
-              </li>
-            </ul>
-          </div>
+  <header class="header">
+    <div class="header__inner">
+      <a class="header__brand" href="../" aria-label="홈으로 이동">
+        <img class="header__logo" src="../assets/ComLogo.png" alt="트리비게임즈">
+      </a>
+      <div class="header__actions">
+        <div class="language-select" data-language-select>
+          <button type="button" class="language-select__toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="언어 선택">
+            <svg class="language-select__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2"/>
+              <ellipse cx="12" cy="12" rx="3.5" ry="9" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M3 12h18" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+            <span class="language-select__current" data-language-current>한국어</span>
+          </button>
+          <ul class="language-select__menu" role="listbox" hidden>
+            <li><button type="button" role="option" class="language-select__option" data-language-option="ko" aria-selected="true">한국어</button></li>
+            <li><button type="button" role="option" class="language-select__option" data-language-option="en" aria-selected="false">English</button></li>
+          </ul>
         </div>
       </div>
     </div>
   </header>
-  <main class="site-main">
+
+  <main class="legal-main">
     <article class="legal-container">
       <div data-lang-block="ko">
         <h1>계정 삭제 안내</h1>
@@ -89,25 +87,25 @@
       </div>
     </article>
   </main>
-  <footer class="site-footer">
-    <div class="footer-label">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <img src="../assets/ComLogo.png" alt="트리비게임즈 로고">
-        </div>
-        <div class="footer-info">
-          <p data-i18n="footer.address">34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128</p>
-          <p data-i18n="footer.email">support@tribgames.com</p>
-          <p data-i18n="footer.copyright">2025 TRIB GAMES All rights reserved.</p>
-        </div>
-        <nav class="footer-links" aria-label="법적 고지">
-          <a href="../terms/" data-i18n="footer.link.terms">이용약관</a>
-          <a href="../privacy/" data-i18n="footer.link.privacy">개인정보처리정책</a>
-          <a href="../account-deletion/" data-i18n="footer.link.accountDeletion">계정 삭제 안내</a>
-        </nav>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="../assets/ComLogo.png" alt="TRIBGAMES">
       </div>
+      <div class="footer__info">
+        <p data-i18n="footer.address">34, Suji-ro 342beon-gil, Suji-gu, Yongin-si, Gyeonggi-do A128</p>
+        <p data-i18n="footer.email">support@tribgames.com</p>
+        <p data-i18n="footer.copyright">© 2025 TRIB GAMES All rights reserved.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="../terms/" data-i18n="footer.link.terms">이용약관</a>
+        <a href="../privacy/" data-i18n="footer.link.privacy">개인정보처리정책</a>
+        <a href="../account-deletion/" data-i18n="footer.link.accountDeletion">계정 삭제 안내</a>
+      </nav>
     </div>
   </footer>
+  
   <script src="../assets/language.js"></script>
 </body>
 </html>
